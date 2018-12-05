@@ -1,0 +1,17 @@
+<button class="timebtn">Get MPP</button>
+<div id="result"></div>
+<script>
+    document.querySelector('.timebtn').addEventListener('click', function () {
+        // convert data to Uint8Array
+        filedata = []
+        var result = Module.ccall(
+            'getMpp', // name of C function
+            'number',         // return type
+            ['array'],         // argument types
+            [filedata]);        // arguments
+        console.log(result)
+        document.getElementById('result').innerText = result
+    });
+</script>
+
+{{{ SCRIPT }}}
